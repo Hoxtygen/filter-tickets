@@ -1,10 +1,10 @@
-import React from 'react';
-import './App.css';
+import "./App.css";
+import Home from "./views/Home";
 
 function App() {
   return (
     <div className="App">
-     <h3>Filter Ticket</h3>
+      <Home />
     </div>
   );
 }
