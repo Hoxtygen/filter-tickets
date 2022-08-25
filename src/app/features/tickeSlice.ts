@@ -16,7 +16,7 @@ const initialState: InitialStateProp = {
 
 }
 
-export const billets = createSlice({
+export const tickets = createSlice({
 	name: "ticketSlice",
 	initialState,
 	reducers: {
@@ -38,6 +38,6 @@ export const billets = createSlice({
 	}
 })
 
-export const billetActions = billets.actions;
- const { reducer} = billets
+export const ticketActions = tickets.actions;
+ const { reducer} = tickets
 export  default reducer

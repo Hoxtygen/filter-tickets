@@ -21,7 +21,7 @@ export default function Ticket(ticket: TicketProps) {
         <span className="caption"> Date created:</span> {ticket.created_at}
       </p>
       <p>
-        <span className="caption">Transfer times:</span>
+        <span className="caption">Transfer times: </span>
         {ticket.no_of_transfers}
       </p>
     </div>
