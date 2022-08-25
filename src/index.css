@@ -1,8 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Work+Sans&display=swap");
+
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background-color: #f2fcff;
+  color: #4a4a4a;
+  font-family: "Merriweather", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +14,95 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Work Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.header-inner   {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.ticket-item {
+  margin: auto;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.ticket-item + .ticket-item {
+  margin-top: 20px;
+}
+
+.sidebar {
+  border-right: 1px solid #ccc;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px;
+  background-color: #cddbdf;
+
+}
+
+.ticket-list {
+  padding: 1rem;
+}
+.caption {
+  font-weight: 700;
+}
+
+.sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 50px;
+  padding: 1rem;
+}
+.only   {
+  color: #2196F3;
+  cursor: pointer;
+  margin-left: 40px;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+}
+
+@media screen and (min-width: 760px) {
+  .main-inner {
+    display: flex;
+  }
+
+  .sidebar {
+    display: block;
+    width: 250px;
+  }
+  .ticket-list {
+    width: calc(100vw - 250px);
+  }
+
+  .ticket-list-inner {
+    margin: auto;
+    width: 60%;
+  }
+
+
 }

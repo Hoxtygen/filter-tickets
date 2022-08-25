@@ -30,7 +30,6 @@ export default function Filter({
             {type.name !== "All" && (
               <button className="only"
                 onClick={() => handleOnly(type.transferTimes)}
-                style={{ color: "red", cursor: "pointer", marginLeft: "20px" }}
               >
                 Only
               </button>

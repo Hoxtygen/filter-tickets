@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <>
       <Header>
-        <h2>Ticket Filtering</h2>
+        <h2 className="app-title">Ticket Filtering</h2>
       </Header>
       <Main>
         <Sidebar
