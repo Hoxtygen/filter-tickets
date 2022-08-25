@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { FilterProp } from "../types";
 
 export default function Filter({
@@ -7,35 +7,35 @@ export default function Filter({
   selected,
 }: FilterProp) {
   const transferTypes = [
-    { name: "All", transferTimes: "all" },
-    { name: "No transfers", transferTimes: "0" },
-    { name: "1 transfer", transferTimes: "1" },
-    { name: "2 transfers", transferTimes: "2" },
-    { name: "3 transfers", transferTimes: "3" },
+    { name: "all", transferTimes: "all", label: "All" },
+    { name: "none", transferTimes: "0", label: "No transfers" },
+    { name: "one", transferTimes: "1", label: "1 transfer" },
+    { name: "two", transferTimes: "2", label: "2 transfers" },
+    { name: "three", transferTimes: "3", label: "3 transfers" },
   ];
   return (
     <>
       {transferTypes.map((type) => (
-        <Fragment key={type.name}>
-          <label htmlFor="">
-            <input
+        <div key={type.name} className = "input-wrapper">
+          <input
               type="checkbox"
               value={type.transferTimes}
-              id=""
+              id={type.name}
               onChange={handleChange}
-              name={type.name}
+              name={type.label}
               checked={selected.includes(type.transferTimes)}
             />{" "}
-            {type.name}
-            {type.name !== "All" && (
-              <button className="only"
+          <label className="form-control" htmlFor={type.name}>
+            <span> {type.label}</span></label>
+            {type.label !== "All" && (
+              <button
+                className="only"
                 onClick={() => handleOnly(type.transferTimes)}
               >
                 Only
               </button>
             )}
-          </label>
-        </Fragment>
+        </div>
       ))}
     </>
   );
