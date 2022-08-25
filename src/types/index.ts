@@ -16,8 +16,10 @@ export interface ChildrenProp {
 	children: React.ReactNode;
 }
 
-export interface ChangeProp {
+export interface FilterProp {
 	handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-	
-  }
-  
+	handleOnly: (transferTimes: string) => void;
+	selected: string[]
+
+
+}

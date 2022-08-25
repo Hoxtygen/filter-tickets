@@ -1,8 +1,11 @@
 import React, { Fragment } from "react";
-import { ChangeProp } from "../types";
+import { FilterProp } from "../types";
 
-
-export default function Filter({ handleChange }: ChangeProp) {
+export default function Filter({
+  handleChange,
+  handleOnly,
+  selected,
+}: FilterProp) {
   const transferTypes = [
     { name: "All", transferTimes: "all" },
     { name: "No transfers", transferTimes: "0" },
@@ -20,8 +23,18 @@ export default function Filter({ handleChange }: ChangeProp) {
               value={type.transferTimes}
               id=""
               onChange={handleChange}
+              name={type.name}
+              checked={selected.includes(type.transferTimes)}
             />{" "}
             {type.name}
+            {type.name !== "All" && (
+              <button className="only"
+                onClick={() => handleOnly(type.transferTimes)}
+                style={{ color: "red", cursor: "pointer", marginLeft: "20px" }}
+              >
+                Only
+              </button>
+            )}
           </label>
         </Fragment>
       ))}

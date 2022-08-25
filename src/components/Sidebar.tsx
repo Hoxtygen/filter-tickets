@@ -1,12 +1,20 @@
 import React from "react";
-import { ChangeProp } from "../types";
+import { FilterProp } from "../types";
 import Filter from "./Filter";
 
-export default function Sidebar({ handleChange }: ChangeProp) {
+export default function Sidebar({
+  handleChange,
+  handleOnly,
+  selected,
+}: FilterProp) {
   return (
     <aside className="sidebar">
       <div className="sidebar-inner">
-        <Filter handleChange={handleChange} />
+        <Filter
+          handleChange={handleChange}
+          handleOnly={handleOnly}
+          selected={selected}
+        />
       </div>
     </aside>
   );

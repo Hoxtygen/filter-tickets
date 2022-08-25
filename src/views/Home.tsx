@@ -7,17 +7,32 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { ticketActions } from "../app/features/tickeSlice";
 
 export default function Home() {
-  const [selected, setSelected] = useState<string[]>([]);
+  const [selected, setSelected] = useState<string[]>(["all"]);
 
   const dispatch = useAppDispatch();
   const filteredTickets = useAppSelector((state) => state.filteredTickets);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-      setSelected([...selected, e.target.value]);
+    const removeDefaultAll = selected.filter((value) => value !== "all");
+    if (selected.includes("all")) {
+      setSelected([...removeDefaultAll, e.target.value]);
     } else {
-      setSelected(selected.filter((value) => value !== e.target.value));
+      if (selected.includes(e.target.value)) {
+        setSelected(selected.filter((id) => id !== e.target.value));
+      } else {
+        setSelected([...selected, e.target.value]);
+      }
     }
+  };
+
+  useEffect(() => {
+    if (selected.length === 0) {
+      setSelected(["all"]);
+    }
+  }, [selected]);
+
+  const handleOnly = (transferTimes: string) => {
+    setSelected([transferTimes]);
   };
 
   useEffect(() => {
@@ -30,7 +45,11 @@ export default function Home() {
         <h2>Ticket Filtering</h2>
       </Header>
       <Main>
-        <Sidebar handleChange={handleChange} />
+        <Sidebar
+          handleChange={handleChange}
+          handleOnly={handleOnly}
+          selected={selected}
+        />
         <TicketList tickets={filteredTickets} />
       </Main>
     </>
