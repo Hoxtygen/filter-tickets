@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  height: 100px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.ticket-item {
+  margin: auto;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.ticket-item + .ticket-item {
+  margin-top: 20px;
+}
+
+.sidebar {
+  background-color: navajowhite;
+}
+
+.ticket-list {
+  padding: 1rem;
+}
+.caption {
+  font-weight: 700;
+}
+
+.sidebar-inner {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100%;
+  padding-top: 50px;
+  padding: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
+@media screen and (min-width: 760px) {
+  .main-inner {
+    display: flex;
+  }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .sidebar {
+    display: block;
+    width: 250px;
   }
-  to {
-    transform: rotate(360deg);
+  .ticket-list {
+    width: calc(100vw - 250px);
   }
+
+  .ticket-list-inner {
+    margin: auto;
+    width: 60%;
+  }
+
+
 }
