@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import Main from "../components/Main";
 import Sidebar from "../components/Sidebar";
 import TicketList from "../pages/TicketList";
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { ticketActions } from "../app/features/tickeSlice";
 
@@ -10,7 +10,7 @@ export default function Home() {
   const [selected, setSelected] = useState<string[]>(["all"]);
 
   const dispatch = useAppDispatch();
-  const filteredTickets = useAppSelector((state) => state.filteredTickets);
+  const filteredTickets = useAppSelector((state) => state.tickets.filteredTickets);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const removeDefaultAll = selected.filter((value) => value !== "all");
@@ -40,9 +40,9 @@ export default function Home() {
   }, [dispatch, selected]);
 
   return (
-    <>
+    <div data-testid = "home">
       <Header>
-        <h2 className="app-title">Ticket Filtering</h2>
+        <h2 data-testid = "main-title" className="app-title">Ticket Filtering</h2>
       </Header>
       <Main>
         <Sidebar
@@ -52,6 +52,6 @@ export default function Home() {
         />
         <TicketList tickets={filteredTickets} />
       </Main>
-    </>
+    </div>
   );
 }
