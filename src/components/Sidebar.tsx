@@ -10,7 +10,7 @@ export default function Sidebar({
   return (
     <aside className="sidebar">
       <div className="sidebar-inner">
-        <h2 className="sidebar-title">Number of Transfers</h2>
+        <h2 data-testid = "sidebar-title" className="sidebar-title">Number of Transfers</h2>
         <Filter
           handleChange={handleChange}
           handleOnly={handleOnly}

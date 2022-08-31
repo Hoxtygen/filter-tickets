@@ -4,7 +4,7 @@ import { TicketProps, TicketListProps } from "../types";
 
 export default function TicketList({ tickets }: TicketListProps) {
   return (
-    <div className="ticket-list">
+    <div data-testid = "ticket-list" className="ticket-list">
       <div className="ticket-list-inner">
         {tickets.map((ticket: TicketProps) => (
           <Ticket key={ticket.ticket_id} {...ticket} />
